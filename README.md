@@ -3,6 +3,8 @@
 
 ## 问题出现在：
 
+### 添加DNS记录：
+
 actions/add_record.php 第20行往后  
 
 ```php
@@ -23,6 +25,12 @@ actions/add_record.php 第20行往后
 ```
 
 上面的data在非CAA、SRV记录中是空的（见record_data.php中定义）。但是CF的API无法解析这个空数组，所以就无法添加DNS记录。
+
+### 修改DNS记录：
+
+actions/edit_record.php 第31行记录
+
+巴拉巴拉巴拉吧（同样的问题，不再赘述）
 
 ## 解决：
 
@@ -45,7 +53,11 @@ try {
 	if(empty($options['data']))unset($options['data']);##就是这一行啦。
 	$dns = $adapter->post('zones/' . $_GET['zoneid'] . '/dns_records', $options);
 ```
-当然你也可以直接下载 https://github.com/yumusb/Fix-ZE3kr-Cloudflare/blob/master/add_record.php 替换掉 actions/add_record.php
+当然你也可以直接下载 
+
+https://github.com/yumusb/Fix-ZE3kr-Cloudflare/blob/master/add_record.php 替换掉 actions/add_record.php
+
+https://github.com/yumusb/Fix-ZE3kr-Cloudflare/blob/master/edit_record.php 替换掉 actions/edit_record.php
 
 ## 最后
 
