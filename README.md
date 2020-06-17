@@ -1,4 +1,8 @@
 # Fix-ZE3kr-Cloudflare
+当然,此问题早已经修复.可以去其仓库获取最新消息 https://github.com/ZE3kr/Cloudflare-CNAME-Setup
+
+----------
+
 其实和白嫖不白嫖的关系不大。白嫖一样能用，不过CF的API解析参数严格了一些。
 
 ## 问题出现在：
